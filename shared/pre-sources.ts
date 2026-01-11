@@ -13,10 +13,19 @@ const Time = {
 }
 
 export const originSources = {
+  "bbc": {
+    name: "BBC",
+    column: "world",
+    color: "red",
+    home: "https://www.bbc.co.uk/news",
+    lang: "en",
+    type: "hottest",
+  },
   "v2ex": {
     name: "V2EX",
     color: "slate",
     home: "https://v2ex.com/",
+    lang: "zh",
     sub: {
       share: {
         title: "最新分享",
@@ -30,6 +39,7 @@ export const originSources = {
     column: "china",
     color: "blue",
     home: "https://www.zhihu.com",
+    lang: "zh",
   },
   "weibo": {
     name: "微博",
@@ -39,6 +49,7 @@ export const originSources = {
     color: "red",
     interval: Time.Realtime,
     home: "https://weibo.com",
+    lang: "zh",
   },
   "zaobao": {
     name: "联合早报",
@@ -48,6 +59,7 @@ export const originSources = {
     color: "red",
     desc: "来自第三方网站: 早晨报",
     home: "https://www.zaobao.com",
+    lang: "zh",
   },
   "coolapk": {
     name: "酷安",
@@ -56,6 +68,7 @@ export const originSources = {
     color: "green",
     title: "今日最热",
     home: "https://coolapk.com",
+    lang: "zh",
   },
   "mktnews": {
     name: "MKTNews",
@@ -63,6 +76,7 @@ export const originSources = {
     home: "https://mktnews.net",
     color: "indigo",
     interval: Time.Realtime,
+    lang: "en",
     sub: {
       flash: {
         title: "快讯",
@@ -74,6 +88,7 @@ export const originSources = {
     color: "blue",
     column: "finance",
     home: "https://wallstreetcn.com/",
+    lang: "zh",
     sub: {
       quick: {
         type: "realtime",
@@ -97,6 +112,7 @@ export const originSources = {
     color: "blue",
     home: "https://36kr.com",
     column: "tech",
+    lang: "zh",
     sub: {
       quick: {
         title: "快讯",
@@ -113,6 +129,7 @@ export const originSources = {
     column: "china",
     color: "gray",
     home: "https://www.douyin.com",
+    lang: "zh",
   },
   "hupu": {
     name: "虎扑",
@@ -121,6 +138,7 @@ export const originSources = {
     title: "主干道热帖",
     type: "hottest",
     color: "red",
+    lang: "zh",
   },
   "tieba": {
     name: "百度贴吧",
@@ -129,6 +147,7 @@ export const originSources = {
     type: "hottest",
     color: "blue",
     home: "https://tieba.baidu.com",
+    lang: "zh",
   },
   "toutiao": {
     name: "今日头条",
@@ -136,6 +155,7 @@ export const originSources = {
     column: "china",
     color: "red",
     home: "https://www.toutiao.com",
+    lang: "zh",
   },
   "ithome": {
     name: "IT之家",
@@ -143,6 +163,7 @@ export const originSources = {
     column: "tech",
     type: "realtime",
     home: "https://www.ithome.com",
+    lang: "zh",
   },
   "thepaper": {
     name: "澎湃新闻",
@@ -152,12 +173,14 @@ export const originSources = {
     title: "热榜",
     color: "gray",
     home: "https://www.thepaper.cn",
+    lang: "zh",
   },
   "sputniknewscn": {
     name: "卫星通讯社",
     color: "orange",
     column: "world",
     home: "https://sputniknews.cn",
+    lang: "zh",
   },
   "cankaoxiaoxi": {
     name: "参考消息",
@@ -165,12 +188,14 @@ export const originSources = {
     column: "world",
     interval: Time.Common,
     home: "https://china.cankaoxiaoxi.com",
+    lang: "zh",
   },
   "pcbeta": {
     name: "远景论坛",
     color: "blue",
     column: "tech",
     home: "https://bbs.pcbeta.com",
+    lang: "zh",
     sub: {
       windows11: {
         title: "Win11",
@@ -190,6 +215,7 @@ export const originSources = {
     color: "red",
     column: "finance",
     home: "https://www.cls.cn",
+    lang: "zh",
     sub: {
       telegraph: {
         title: "电报",
@@ -210,6 +236,7 @@ export const originSources = {
     color: "blue",
     home: "https://xueqiu.com",
     column: "finance",
+    lang: "zh",
     sub: {
       hotstock: {
         title: "热门股票",
@@ -226,11 +253,13 @@ export const originSources = {
     type: "realtime",
     interval: Time.Realtime,
     home: "https://www.gelonghui.com",
+    lang: "zh",
   },
   "fastbull": {
     name: "法布财经",
     color: "emerald",
     home: "https://www.fastbull.cn",
+    lang: "zh",
     column: "finance",
     sub: {
       express: {
@@ -249,6 +278,7 @@ export const originSources = {
     color: "teal",
     column: "tech",
     home: "https://solidot.org",
+    lang: "zh",
     interval: Time.Slow,
   },
   "hackernews": {
@@ -257,6 +287,7 @@ export const originSources = {
     column: "tech",
     type: "hottest",
     home: "https://news.ycombinator.com/",
+    lang: "zh",
   },
   "producthunt": {
     name: "Product Hunt",
@@ -264,11 +295,13 @@ export const originSources = {
     column: "tech",
     type: "hottest",
     home: "https://www.producthunt.com/",
+    lang: "zh",
   },
   "github": {
     name: "Github",
     color: "gray",
     home: "https://github.com/",
+    lang: "zh",
     column: "tech",
     sub: {
       "trending-today": {
@@ -281,6 +314,7 @@ export const originSources = {
     name: "哔哩哔哩",
     color: "blue",
     home: "https://www.bilibili.com",
+    lang: "zh",
     sub: {
       "hot-search": {
         title: "热搜",
@@ -310,6 +344,7 @@ export const originSources = {
     // cloudflare pages cannot access
     disable: "cf",
     home: "https://www.kuaishou.com",
+    lang: "zh",
   },
   "kaopu": {
     name: "靠谱新闻",
@@ -318,6 +353,7 @@ export const originSources = {
     interval: Time.Common,
     desc: "不一定靠谱，多看多思考",
     home: "https://kaopu.news/",
+    lang: "zh",
   },
   "jin10": {
     name: "金十数据",
@@ -325,6 +361,7 @@ export const originSources = {
     color: "blue",
     type: "realtime",
     home: "https://www.jin10.com",
+    lang: "zh",
   },
   "baidu": {
     name: "百度热搜",
@@ -332,12 +369,14 @@ export const originSources = {
     color: "blue",
     type: "hottest",
     home: "https://www.baidu.com",
+    lang: "zh",
   },
   "linuxdo": {
     name: "LINUX DO",
     column: "tech",
     color: "slate",
     home: "https://linux.do/",
+    lang: "zh",
     disable: true,
     sub: {
       latest: {
@@ -357,6 +396,7 @@ export const originSources = {
     column: "china",
     color: "yellow",
     home: "https://www.ghxi.com/",
+    lang: "zh",
     disable: true,
   },
   "smzdm": {
@@ -365,6 +405,7 @@ export const originSources = {
     color: "red",
     type: "hottest",
     home: "https://www.smzdm.com",
+    lang: "zh",
     disable: true,
   },
   "nowcoder": {
@@ -373,6 +414,7 @@ export const originSources = {
     color: "blue",
     type: "hottest",
     home: "https://www.nowcoder.com",
+    lang: "zh",
   },
   "sspai": {
     name: "少数派",
@@ -380,6 +422,7 @@ export const originSources = {
     color: "red",
     type: "hottest",
     home: "https://sspai.com",
+    lang: "zh",
   },
   "juejin": {
     name: "稀土掘金",
@@ -387,6 +430,7 @@ export const originSources = {
     color: "blue",
     type: "hottest",
     home: "https://juejin.cn",
+    lang: "zh",
   },
   "ifeng": {
     name: "凤凰网",
@@ -395,12 +439,14 @@ export const originSources = {
     type: "hottest",
     title: "热点资讯",
     home: "https://www.ifeng.com",
+    lang: "zh",
   },
   "chongbuluo": {
     name: "虫部落",
     column: "china",
     color: "green",
     home: "https://www.chongbuluo.com",
+    lang: "zh",
     sub: {
       latest: {
         title: "最新",
@@ -422,6 +468,7 @@ export const originSources = {
     color: "green",
     type: "hottest",
     home: "https://www.douban.com",
+    lang: "zh",
   },
   "steam": {
     name: "Steam",
@@ -430,12 +477,14 @@ export const originSources = {
     color: "blue",
     type: "hottest",
     home: "https://store.steampowered.com",
+    lang: "en",
   },
   "tencent": {
     name: "腾讯新闻",
     column: "china",
     color: "blue",
     home: "https://news.qq.com",
+    lang: "zh",
     sub: {
       hot: {
         title: "综合早报",
@@ -452,6 +501,7 @@ export const originSources = {
     color: "green",
     type: "hottest",
     home: "https://www.freebuf.com/",
+    lang: "zh",
   },
 
   "qqvideo": {
@@ -459,6 +509,7 @@ export const originSources = {
     column: "china",
     color: "blue",
     home: "https://v.qq.com/",
+    lang: "zh",
     sub: {
       "tv-hotsearch": {
         title: "热搜榜",
@@ -474,6 +525,7 @@ export const originSources = {
     column: "china",
     color: "green",
     home: "https://www.iqiyi.com",
+    lang: "zh",
     sub: {
       "hot-ranklist": {
         title: "热播榜",
@@ -498,6 +550,7 @@ export function genSources() {
       home: source.home,
       color: source.color ?? "primary",
       interval: source.interval ?? Time.Default,
+      lang: source.lang,
     }
     if (source.sub && Object.keys(source.sub).length) {
       Object.entries(source.sub).forEach(([subId, subSource], i) => {

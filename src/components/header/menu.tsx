@@ -1,4 +1,5 @@
 import { motion } from "framer-motion"
+import { useTranslation } from "react-i18next"
 
 // function ThemeToggle() {
 //   const { isDark, toggleDark } = useDark()
@@ -13,6 +14,8 @@ import { motion } from "framer-motion"
 // }
 
 export function Menu() {
+  const { t } = useTranslation()
+
   const { loggedIn, login, logout, userInfo, enableLogin } = useLogin()
   const [shown, show] = useState(false)
   return (
@@ -55,19 +58,19 @@ export function Menu() {
                 ? (
                     <li onClick={logout}>
                       <span className="i-ph:sign-out-duotone inline-block" />
-                      <span>退出登录</span>
+                      <span>{t("menu.logout")}</span>
                     </li>
                   )
                 : (
                     <li onClick={login}>
                       <span className="i-ph:sign-in-duotone inline-block" />
-                      <span>Github 账号登录</span>
+                      <span>{t("menu.githubLogin")}</span>
                     </li>
                   ))}
               {/* <ThemeToggle /> */}
               <li onClick={() => window.open(Homepage)} className="cursor-pointer [&_*]:cursor-pointer transition-all">
                 <span className="i-ph:github-logo-duotone inline-block" />
-                <span>Star on Github </span>
+                <span>{t("menu.starOnGithub")}</span>
               </li>
               <li className="flex gap-2 items-center">
                 <a

@@ -76,6 +76,10 @@ export interface Source {
    * @default false
    */
   disable?: boolean | "cf"
+  /**
+   * Language of source content
+   */
+  lang?: "zh" | "en" | "both"
   redirect?: SourceID
 }
 

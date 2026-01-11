@@ -1,5 +1,6 @@
 import type { PrimitiveMetadata } from "@shared/types"
 import { useDebounce, useMount } from "react-use"
+import i18n from "i18next"
 import { useLogin } from "./useLogin"
 import { useToast } from "./useToast"
 import { safeParseString } from "~/utils"
@@ -48,10 +49,10 @@ export function useSync() {
         await uploadMetadata(primitiveMetadata)
       } catch (e: any) {
         if (e.statusCode !== 506) {
-          toaster("身份校验失败，无法同步，请重新登录", {
+          toaster(i18n.t("sync.authFailed"), {
             type: "error",
             action: {
-              label: "登录",
+              label: i18n.t("sync.login"),
               onClick: login,
             },
           })
@@ -73,10 +74,10 @@ export function useSync() {
         }
       } catch (e: any) {
         if (e.statusCode !== 506) {
-          toaster("身份校验失败，无法同步，请重新登录", {
+          toaster(i18n.t("sync.authFailed"), {
             type: "error",
             action: {
-              label: "登录",
+              label: i18n.t("sync.login"),
               onClick: login,
             },
           })

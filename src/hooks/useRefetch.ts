@@ -1,4 +1,5 @@
 import type { SourceID } from "@shared/types"
+import i18n from "i18next"
 import { useUpdateQuery } from "./query"
 
 export function useRefetch() {
@@ -10,10 +11,10 @@ export function useRefetch() {
    */
   const refresh = useCallback((...sources: SourceID[]) => {
     if (enableLogin && !loggedIn) {
-      toaster("登录后可以强制拉取最新数据", {
+      toaster(i18n.t("refetch.loginWarning"), {
         type: "warning",
         action: {
-          label: "登录",
+          label: i18n.t("refetch.login"),
           onClick: login,
         },
       })
