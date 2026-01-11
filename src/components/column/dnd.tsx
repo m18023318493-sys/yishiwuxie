@@ -1,4 +1,4 @@
-import type { PropsWithChildren } from "react"
+import { type PropsWithChildren, useMemo } from "react"
 import type { SourceID } from "@shared/types"
 import type { BaseEventPayload, ElementDragType } from "@atlaskit/pragmatic-drag-and-drop/dist/types/internal-types"
 import { extractClosestEdge } from "@atlaskit/pragmatic-drag-and-drop-hitbox/closest-edge"
@@ -9,29 +9,34 @@ import { useAutoAnimate } from "@formkit/auto-animate/react"
 import { motion } from "framer-motion"
 import { useWindowSize } from "react-use"
 import { isMobile } from "react-device-detect"
+import { useTranslation } from "react-i18next"
 import { DndContext } from "../common/dnd"
 import { useSortable } from "../common/dnd/useSortable"
 import { OverlayScrollbar } from "../common/overlay-scrollbar"
 import type { ItemsProps } from "./card"
 import { CardWrapper } from "./card"
 import { currentSourcesAtom } from "~/atoms"
+import { useLanguageFilteredSourceIds } from "~/hooks/useLanguageFilteredSources"
 
 const AnimationDuration = 200
 const WIDTH = 350
 export function Dnd() {
   const [items, setItems] = useAtom(currentSourcesAtom)
+  const filteredSourceIds = useLanguageFilteredSourceIds()
+  const filteredItems = useMemo(() => items.filter(id => filteredSourceIds.includes(id)), [items, filteredSourceIds])
+  const { t } = useTranslation()
   const [parent] = useAutoAnimate({ duration: AnimationDuration })
-  useEntireQuery(items)
+  useEntireQuery(filteredItems)
   const { width } = useWindowSize()
   const minWidth = useMemo(() => {
     // double padding = 32
     return Math.min(width - 32, WIDTH)
   }, [width])
 
-  if (!items.length) return null
+  if (!filteredItems.length) return null
 
   return (
-    <DndWrapper items={items} setItems={setItems} isSingleColumn={isMobile}>
+    <DndWrapper items={filteredItems} setItems={setItems} isSingleColumn={isMobile}>
       <OverlayScrollbar defer className="overflow-x-auto">
         <motion.ol
           className={isMobile
@@ -60,10 +65,10 @@ export function Dnd() {
             },
           }}
         >
-          {items.map((id, index) => (
+          {filteredItems.map((id, index) => (
             <motion.li
               key={id}
-              className={$(isMobile && "flex-shrink-0", isMobile && index === items.length - 1 && "mr-2")}
+              className={$(isMobile && "flex-shrink-0", isMobile && index === filteredItems.length - 1 && "mr-2")}
               style={isMobile ? { width: `${width - 16 > WIDTH ? WIDTH : width - 16}px` } : undefined}
               transition={{
                 type: "tween",
@@ -87,7 +92,7 @@ export function Dnd() {
       </OverlayScrollbar>
       {isMobile && (
         <div className="flex justify-center">
-          <span className="text-sm text-gray-500 text-center">左右滑动查看更多</span>
+          <span className="text-sm text-gray-500 text-center">{t("dnd.swipeHint")}</span>
         </div>
       )}
     </DndWrapper>
@@ -130,6 +135,7 @@ function DndWrapper({ items, setItems, isSingleColumn, children }: PropsWithChil
 }
 
 function CardOverlay({ id }: { id: SourceID }) {
+  const { t } = useTranslation()
   return (
     <div className={$(
       "flex flex-col p-4 backdrop-blur-5",
@@ -152,7 +158,7 @@ function CardOverlay({ id }: { id: SourceID }) {
               </span>
               {sources[id]?.title && <span className={$("text-sm", `color-${sources[id].color} bg-base op-80 bg-op-50! px-1 rounded`)}>{sources[id].title}</span>}
             </span>
-            <span className="text-xs op-70">拖拽中</span>
+            <span className="text-xs op-70">{t("dnd.dragging")}</span>
           </span>
         </div>
         <div className={$("flex gap-2 text-lg", `color-${sources[id].color}`)}>
