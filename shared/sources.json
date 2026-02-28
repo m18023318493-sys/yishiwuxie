@@ -563,5 +563,24 @@
     "color": "green",
     "interval": 1800000,
     "title": "热播榜"
+  },
+  "amz123": {
+    "redirect": "amz123-kx",
+    "name": "跨境头条",
+    "type": "realtime",
+    "column": "china",
+    "home": "https://www.amz123.com/kx",
+    "color": "lightBlue",
+    "interval": 1800000,
+    "title": "跨境快讯"
+  },
+  "amz123-kx": {
+    "name": "跨境头条",
+    "type": "realtime",
+    "column": "china",
+    "home": "https://www.amz123.com/kx",
+    "color": "lightBlue",
+    "interval": 1800000,
+    "title": "跨境快讯"
   }
 }
