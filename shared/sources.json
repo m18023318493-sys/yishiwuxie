@@ -437,6 +437,15 @@
     "color": "red",
     "interval": 600000
   },
+  "woshipm": {
+    "title": "最新文章",
+    "name": "人人都是产品经理",
+    "type": "realtime",
+    "column": "tech",
+    "home": "https://www.woshipm.com",
+    "color": "orange",
+    "interval": 600000
+  },
   "juejin": {
     "name": "稀土掘金",
     "type": "hottest",
