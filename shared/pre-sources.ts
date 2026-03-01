@@ -381,6 +381,14 @@ export const originSources = {
     type: "hottest",
     home: "https://sspai.com",
   },
+  "woshipm": {
+    name: "人人都是产品经理",
+    column: "tech",
+    color: "orange",
+    title: "最新文章",
+    type: "realtime",
+    home: "https://www.woshipm.com",
+  },
   "juejin": {
     name: "稀土掘金",
     column: "tech",
